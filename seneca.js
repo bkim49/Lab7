@@ -21,22 +21,17 @@
 // [INFO] See discussion of node.js exports here:
 // https://www.sitepoint.com/understanding-module-exports-exports-node-js/
 
-/**
- * Given a string `email`, return `true` if the string is in the form
- * of a valid Seneca College email address, `false` othewise.
- */
-exports.isValidEmail = function validEmail(email) {
-  if (email.includes('@myseneca.ca') || email.includes('@senecacollege.ca')) {
-    return true;
-  }
-  return false;
+/*Given a string `email`, return `true` if the string is in the form
+* of a valid Seneca College email address, `false` othewise.
+*/
+exports.isValidEmail = function f1(email) {
+ return (!email.includes(' ') && /@myseneca.ca$/.test(email) || /@senecacollege.ca$/.test(email) || /@senecac.on.ca$/.test(email));
 };
 
 /**
- * Given a string `name`, return a formatted Seneca email address for
- * this person. NOTE: the email doesn't need to be real/valid/active.
- */
-exports.formatSenecaEmail = function formatEmail(name) {
-  const format = name.concat('@myseneca.ca');
-  return format;
+* Given a string `name`, return a formatted Seneca email address for
+* this person. NOTE: the email doesn't need to be real/valid/active.
+*/
+exports.formatSenecaEmail = function f2(name) {
+ return `${name}@myseneca.ca`;
 };
